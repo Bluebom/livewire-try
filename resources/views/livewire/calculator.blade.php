@@ -1,5 +1,5 @@
 <div
-    class="min-w-h-1/2 mx-auto max-w-[500px] rounded-lg border-2 border-white bg-gray-900 py-4 text-center text-white shadow-lg">
+    class="min-h-1/2 mx-auto max-w-[500px] rounded-lg border-2 border-white bg-gray-900 py-4 text-center text-white shadow-lg">
     <header class="text-3xl">Calculadora</header>
     <main class="my-4 h-1/4 bg-gray-800 py-3">
         <div class="flex justify-end">
