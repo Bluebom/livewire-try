@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <livewire:update-post />
+    {{ $slot }}
 </body>
 
 </html>
