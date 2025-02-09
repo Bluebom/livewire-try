@@ -13,7 +13,11 @@
 </head>
 
 <body>
-    <livewire:update-post />
+    <section class="flex h-screen items-center justify-center bg-zinc-700">
+        <main class="w-1/2 max-w-[500px] rounded-lg border-8 border-zinc-900 bg-white p-4 shadow-lg">
+            <livewire:create-post />
+        </main>
+    </section>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\PostForm;
 use App\Models\Post;
 use Livewire\Attributes\Js;
 use Livewire\Attributes\Locked;
@@ -10,31 +11,15 @@ use Livewire\Component;
 class UpdatePost extends Component
 {
     public Post $post;
-    public $title;
-    public $content;
+    public PostForm $form;
     public bool $sortAsc = false;
+    public int $quantity = 0;
 
     public function mount(Post $post)
     {
         $this->post = $post;
-        $this->title = $post->title;
-        $this->content = $post->content;
-    }
-
-    public function rules()
-    {
-        return [
-            'title' => 'required|min:6',
-            'content' => 'required|min:6',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'title.required' => 'O título é obrigatório.',
-            'title.min' => 'O título deve ter pelo menos 6 caracteres.',
-        ];
+        $this->form->title = $post->title;
+        $this->form->content = $post->content;
     }
 
     public function update()
@@ -42,11 +27,12 @@ class UpdatePost extends Component
         $this->validate();
 
         $this->post->update([
-            'title' => $this->title,
-            'content' => $this->content,
+            'title' => $this->form->title,
+            'content' => $this->form->content,
         ]);
 
         session()->flash('message', 'Post updated successfully!');
+
         $this->js("alert('Post saved!')"); 
     }
 
@@ -59,7 +45,7 @@ class UpdatePost extends Component
     public function resetQuery()
     {
         return <<<'JS'
-            $wire.title = '';
+            $wire.form.title = '';
         JS;
     }
 
