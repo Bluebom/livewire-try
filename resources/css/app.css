@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
+
+.fi-pagination-overview {
+    color: transparent;
+}
+
+.fi-ta-header-ctn {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.fi-ta-header-ctn > .fi-ta-header-toolbar {
+    border: none !important;
+}

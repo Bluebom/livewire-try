@@ -19,6 +19,8 @@
             </x-button>
         </div>
         <span x-init="$el.innerHTML = await $wire.getPostCount()"></span>
-        <x-input-counter wire:model="quantity" />
+        @foreach ($this->post->all() as $p)
+            <livewire:counter :$quantity :key="$p->id" />
+        @endforeach
     </form>
 </div>
